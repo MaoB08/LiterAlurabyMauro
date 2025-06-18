@@ -36,6 +36,7 @@ public class BookService {
                 .collect(Collectors.toList());
         book.setAuthors(authors);
         book.setSubjects(bookDTO.subjects());
+        book.setLanguages(bookDTO.languages());
         return bookRepository.save(book);
     }
     public void listAll(){
@@ -47,6 +48,7 @@ public class BookService {
             String autores = book.getAuthors().stream().map(Persons::getName).collect(Collectors.joining(", "));
             System.out.println("Autores: " + autores);
             System.out.println("Generos: " + book.getSubjects());
+            System.out.println("Lenguajes: " + book.getLanguages());
             System.out.println("##########################");
         }
     }
@@ -60,6 +62,7 @@ public class BookService {
             String autores = book.getAuthors().stream().map(Persons::getName).collect(Collectors.joining(", "));
             System.out.println("Autores: " + autores);
             System.out.println("Generos: " + book.getSubjects());
+            System.out.println("Lenguajes: " + book.getLanguages());
             System.out.println("##########################");
         }else{
             System.out.println("No hemos podido encontrar tu libro");
@@ -75,6 +78,7 @@ public class BookService {
             String autores = book.getAuthors().stream().map(Persons::getName).collect(Collectors.joining(", "));
             System.out.println("Autores: " + autores);
             System.out.println("Generos: " + book.getSubjects());
+            System.out.println("Lenguajes: " + book.getLanguages());
             System.out.println("##########################");
         }
     }
@@ -88,6 +92,20 @@ public class BookService {
             String autores = book.getAuthors().stream().map(Persons::getName).collect(Collectors.joining(", "));
             System.out.println("Autores: " + autores);
             System.out.println("Generos: " + book.getSubjects());
+            System.out.println("Lenguajes: " + book.getLanguages());
+            System.out.println("##########################");
+        }
+    }
+    public void findByLanguages(String author) {
+        List<Book> books = bookRepository.findByLanguajes(author);
+        for (Book book : books){
+            System.out.println();
+            System.out.println("######### Libro ##########");
+            System.out.println("Titulo: " + book.getTitle());
+            String autores = book.getAuthors().stream().map(Persons::getName).collect(Collectors.joining(", "));
+            System.out.println("Autores: " + autores);
+            System.out.println("Generos: " + book.getSubjects());
+            System.out.println("Lenguajes: " + book.getLanguages());
             System.out.println("##########################");
         }
     }

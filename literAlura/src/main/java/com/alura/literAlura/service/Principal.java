@@ -22,6 +22,7 @@ public class Principal {
         System.out.println("3. Mostrar todos los libros especificando el genero");
         System.out.println("4. Mostrar todos los libros de un siglo en especifico");
         System.out.println("5. Mostrar todos los libros de un autor en especifico");
+        System.out.println("6. Mostrar todos los libros indicando un lenguaje en especifico");
         switch (scanner.nextInt()){
             case 1:
                 bookService.listAll();
@@ -41,6 +42,11 @@ public class Principal {
             case 5:
                 System.out.println("Especifica el autor de tu interes");
                 bookService.findByAuthor(scannerName.nextLine());
+                break;
+            case 6:
+                System.out.println("Especifica el lenguaje en el que deseas leer los libros");
+                System.out.println("Acuerdate que solamente debes copiar el codigo del lenguaje (Ej: en)");
+                bookService.findByLanguages(scannerName.nextLine());
                 break;
         }
     }

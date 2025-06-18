@@ -9,6 +9,7 @@ public record BookDTO(
          Long id,
          String title,
          List<PersonDTO>authors,
-         List<String> subjects
+         List<String> subjects,
+         List<String> languages
 ) {
 }

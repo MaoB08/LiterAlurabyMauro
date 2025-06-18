@@ -30,4 +30,6 @@ public class Book {
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> subjects;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> languages;
 }

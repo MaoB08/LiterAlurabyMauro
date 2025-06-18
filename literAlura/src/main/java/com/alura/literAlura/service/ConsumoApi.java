@@ -31,7 +31,7 @@ public class ConsumoApi {
                     .uri(URI.create("http://gutendex.com/books/?search=" + name.replace(" ", "%20")))
                     .GET()
                     .header("Accept", "application/json")
-                    .timeout(Duration.ofSeconds(15))
+                    .timeout(Duration.ofSeconds(30))
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -61,7 +61,8 @@ public class ConsumoApi {
                             bookDTO.id(),
                             bookDTO.title(),
                             bookDTO.authors(),
-                            bookDTO.subjects()
+                            bookDTO.subjects(),
+                            bookDTO.languages()
                     ))
                     .orElse(null);
 
